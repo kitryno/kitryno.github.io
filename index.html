@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KITRYNO</title>
 
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z556JH20MQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z556JH20MQ');
+</script>
+
     <style>
         /* General Reset */
         * {
@@ -13,112 +23,140 @@
             box-sizing: border-box;
         }
 
+        /* CSS Variables for Theme Colors */
+        :root {
+            --bg-color: yellow;
+            --text-color: black;
+            --header-bg: black;
+            --header-text: yellow;
+        }
+
         /* Body Styling */
         body {
             font-family: 'Comic Sans MS', 'Comic Sans';
             line-height: 1.6;
-            background-color: yellow;
-            color: #000000;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensures the body stretches to fill the viewport */
+            min-height: 100vh;
         }
 
         /* Header Section */
         header {
-            background: yellow;
-            color: rgb(0, 0, 0);
+            background: var(--bg-color);
+            color: var(--text-color);
             text-align: center;
             padding: 1rem 0;
+            position: relative; /* Allows positioning the button far-right */
         }
 
         header h1 {
             margin-bottom: 0.5rem;
-            background-color: #000000;
-            color: yellow;
+            background-color: var(--header-text);
+            color: var(--header-bg);
             display: inline-block;
             letter-spacing: 8px;
         }
 
+        /* Image Button Styling */
+        .theme-toggle-btn {
+            position: absolute; /* Positioned relative to header */
+            top: 50%; /* Center vertically relative to header */
+            right: 1rem; /* Keep the button far-right */
+            transform: translateY(-50%); /* Adjust for perfect centering */
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background-image: url('kitrynoposter2.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: translateY(-50%) scale(1.1); /* Slight zoom on hover */
+        }
+
         /* Navigation Bar */
         nav {
-            background: #000000;
+            background: var(--header-bg);
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            flex-wrap: wrap;
             padding: 0.5rem 0;
         }
 
-        /* General Style for Navigation Buttons */
         .nav-btn {
-            color: #000000; /* Black text */
-            background-color: yellow; /* Yellow background for the buttons */
-            border: none; /* Remove default button border */
-            padding: 10px 20px; /* Padding for the buttons */
-            margin: 0.5rem; /* Space between buttons */
-            font-weight: bold; /* Make text bold */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Change cursor to indicate clickable */
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+            color: var(--header-bg);
+            background-color: var(--header-text);
+            border: none;
+            padding: 10px 20px;
+            margin: 0.5rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .nav-btn:hover {
-            background-color: #ffffff; /* Lighter yellow when hovered */
-            transform: translateY(-3px); /* Slightly lifts the button */
+            background-color: white;
+            transform: translateY(-3px);
         }
 
-        /* Dropdown Menu for each button */
         .nav-item {
-            position: relative; /* Needed for positioning the dropdown */
+            position: relative;
         }
 
         .dropdown-content {
-            display: none; /* Hide the dropdown content by default */
+            display: none;
             position: absolute;
-            background-color: yellow; /* Black background for the dropdown */
+            background-color: var(--header-text);
             min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
             border-radius: 5px;
         }
 
         .nav-item:hover .dropdown-content {
-            display: block; /* Show the dropdown on hover */
+            display: block;
         }
 
         .dropdown-content a {
-            color: #000000; /* Yellow text for dropdown items */
-            padding: 12px 16px; /* Padding inside the dropdown items */
-            text-decoration: none; /* Remove underline */
-            display: block; /* Makes the dropdown items block elements */
-            font-weight: bold; /* Bold text for dropdown items */
+            color: var(--header-bg);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
             border-radius: 5px;
         }
 
         .dropdown-content a:hover {
-            background-color: #ffffff; /* Lighter yellow on hover */
+            background-color: white;
         }
 
         /* Main Content */
         main {
-            flex: 1; /* Ensures the main content expands to take available space */
+            flex: 1;
             padding: 1rem;
-            text-align: center; /* Center the content */
+            text-align: center;
         }
 
         .main-image {
-            width: 90%; /* Makes the image responsive */
-            max-width: 300px; /* Maximum width of the image */
-            height: auto; /* Keeps the image aspect ratio */
-            border-radius: 15px; /* Rounded corners for the image */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding a shadow around the image */
-            margin: 20px auto; /* Center the image and add spacing */
+            width: 90%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
         }
 
         /* Footer Section */
         footer {
-            background: #000000;
-            color: yellow;
+            background: var(--header-bg);
+            color: var(--header-text);
             text-align: center;
             padding: 1rem 0;
         }
@@ -130,13 +168,15 @@
                 letter-spacing: 4px;
             }
 
+            .theme-toggle-btn {
+                width: 35px;
+                height: 35px;
+                right: 0.8rem;
+            }
+
             .nav-btn {
                 padding: 8px 15px;
                 font-size: 0.9rem;
-            }
-
-            .dropdown-content {
-                min-width: 140px;
             }
         }
 
@@ -146,13 +186,15 @@
                 letter-spacing: 2px;
             }
 
+            .theme-toggle-btn {
+                width: 30px;
+                height: 30px;
+                right: 0.5rem;
+            }
+
             .nav-btn {
                 padding: 5px 10px;
                 font-size: 0.8rem;
-            }
-
-            .dropdown-content {
-                min-width: 120px;
             }
 
             footer {
@@ -164,25 +206,21 @@
 <body>
     <header>
         <h1>&nbsp;ΚΙ.ΤΡΥ.Ν.Ο.</h1>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme"></button>
     </header>
     <nav>
-        <!-- Home dropdown menu -->
         <div class="nav-item">
             <button class="nav-btn">Πρόγραμμα</button>
             <div class="dropdown-content">
                 <a href="#">First1</a>
             </div>
         </div>
-
-        <!-- About dropdown menu -->
         <div class="nav-item">
             <button class="nav-btn">Ταινίες</button>
             <div class="dropdown-content">
                 <a href="#">First4</a>
             </div>
         </div>
-
-        <!-- Contact dropdown menu -->
         <div class="nav-item">
             <button class="nav-btn">Η Λέσχη</button>
             <div class="dropdown-content">
@@ -191,11 +229,23 @@
         </div>
     </nav>
     <main>
-        <img src="kitrynoposter.jpg" alt="" class="main-image">
+        <img src="kitrynoposter.jpg" alt="KITRYNO Poster" class="main-image">
         <p>Το σινεγκρούπ που ομορφαίνει τις Δευτέρες σας ...</p>
     </main>
     <footer>
         <p>ΚΙ.ΤΡΥ.Ν.Ο</p>
     </footer>
+
+    <script>
+        function toggleTheme() {
+            const root = document.documentElement;
+            const currentBg = getComputedStyle(root).getPropertyValue('--bg-color').trim();
+
+            root.style.setProperty('--bg-color', currentBg === 'yellow' ? 'black' : 'yellow');
+            root.style.setProperty('--text-color', currentBg === 'yellow' ? 'yellow' : 'black');
+            root.style.setProperty('--header-bg', currentBg === 'yellow' ? 'yellow' : 'black');
+            root.style.setProperty('--header-text', currentBg === 'yellow' ? 'black' : 'yellow');
+        }
+    </script>
 </body>
 </html>
